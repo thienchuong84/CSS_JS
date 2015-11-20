@@ -29,19 +29,34 @@
                 var cotTen = document.createElement('td');
                 var cotGia = document.createElement('td');
                 var cotSLM = document.createElement('td');
+                var cotXoa = document.createElement('td');
                 var hangSP = document.createElement('tr');
+
+                // Tạo nút button và event onlick, add vào cột cuối cùng của table
+                var btnXoa = document.createElement('input');
+                btnXoa.type = "button"; btnXoa.value = "Xóa";
+                btnXoa.name = gh.Tim(i).Ma;
+                btnXoa.onclick = function () {                    
+                    gh.XoaSPTheoMaTrongGH(this.name); //alert(this.name);
+                    XoaDongTrongTable();
+                    HienThiGH();
+                    var tt = document.getElementById('tongTien');
+                    tt.innerHTML = gh.TongTien().toString();    // cập nhật tổng tiền sau khi xóa
+                }
 
                 // B3: Đưa giá trị vào các cột
                 cotMa.appendChild(valueMa);
                 cotTen.appendChild(valueTen);
                 cotGia.appendChild(valueGia);
                 cotSLM.appendChild(valueSLM);
+                cotXoa.appendChild(btnXoa);
 
                 // B4: hàng có nhiều cột, đưa các cột vào hàng
                 hangSP.appendChild(cotMa);
                 hangSP.appendChild(cotTen);
                 hangSP.appendChild(cotGia);
                 hangSP.appendChild(cotSLM);
+                hangSP.appendChild(cotXoa);
                 
                 // B5: đưa hàng vào table
                 //bangOfSP.setAttribute('class', 'table table-bordered');

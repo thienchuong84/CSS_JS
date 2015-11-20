@@ -51,5 +51,20 @@ function GioHang() {
         return dssp[i]; // trả về sp thứ i trong array
     }
 
-    this.
+    this.XoaSPTheoMaTrongGH = function (maSP) {
+        var kq = -1;
+        for (var i = 0; i < dssp.length; i++) {
+            if (dssp[i].Ma == maSP) {
+                kq = i;
+                break;
+            }
+        }
+        if (kq == -1) return;
+        else {
+            for (var i = kq; i < dssp.length - 1; i++) {
+                dssp[i] = dssp[i + 1];
+            }
+            dssp.length--;  // dồn 1 sp phía sau lên phía trước, hay giảm độ dài mãng
+        }
+    }
 }
